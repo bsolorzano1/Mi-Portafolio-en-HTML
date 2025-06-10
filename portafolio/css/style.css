@@ -1,0 +1,501 @@
+/* css/style.css */
+
+/* Variables de Color (opcional, pero buena práctica) */
+:root {
+    --primary-color: #2c3e50; /* Azul oscuro para elementos principales */
+    --secondary-color: #3498db; /* Azul más claro para acentos */
+    --accent-color: #2ecc71; /* Verde para acciones importantes (botones) */
+    --text-color: #333;
+    --light-bg: #f4f4f4;
+    --dark-bg: #2c3e50; /* Usado para el fondo del contacto */
+    --white: #ffffff;
+}
+
+/* Reset Básico y Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--white);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.bg-light {
+    background: var(--light-bg);
+}
+
+.bg-dark {
+    background: var(--dark-bg);
+    color: var(--white);
+}
+
+.text-white {
+    color: var(--white);
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    border-bottom: 3px solid var(--secondary-color);
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #27ae60; /* Un verde un poco más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+/* Header */
+header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+    position: relative; /* Para posicionar la foto de perfil */
+}
+
+header .profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--secondary-color);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    color: var(--white);
+    font-size: 3em;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Navegación */
+nav ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Para que los ítems se envuelvan en pantallas pequeñas */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* Secciones - General */
+section {
+    padding: 60px 0;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Sobre Mí */
+#sobre-mi p {
+    text-align: justify;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+#sobre-mi .btn {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0 auto;
+}
+
+/* Habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.skill-item {
+    background: var(--white);
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.skill-item i {
+    font-size: 3em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.skill-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    color: var(--primary-color);
+}
+
+
+/* Experiencia y Educación */
+.job-item, .education-item {
+    background: var(--white);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-item:hover, .education-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+}
+
+.job-item h3, .education-item h3 {
+    text-align: left;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+
+.job-item h4, .education-item h4 {
+    text-align: left;
+    color: var(--secondary-color);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.job-item ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.job-item ul li {
+    margin-bottom: 8px;
+}
+
+/* Portafolio (Proyectos) */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.project-item {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-item h3 {
+    font-size: 1.4em;
+    margin: 15px 15px 5px 15px;
+    text-align: left;
+}
+
+.project-item p {
+    font-size: 0.95em;
+    margin: 0 15px 15px 15px;
+    text-align: left;
+}
+
+.project-item .btn-small {
+    display: inline-block;
+    margin: 0 15px 15px 15px;
+}
+
+/* Contacto */
+#contacto p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+#contacto i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+#contacto a {
+    color: var(--white);
+    transition: color 0.3s ease;
+}
+
+#contacto a:hover {
+    color: var(--accent-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #f8f4f4;
+    background: var(--white);
+    color: var(--text-color);
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+#contact-form .btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+#form-status {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.social-links {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 2.5em;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+/* -------------------- Media Queries (Responsive Design) -------------------- */
+
+/* Para tablets y dispositivos medianos */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .section-padding {
+        padding: 40px 0;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .skills-grid, .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .job-item, .education-item {
+        padding: 20px;
+    }
+}
+
+/* Para teléfonos y dispositivos pequeños */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+
+    header {
+        padding: 30px 0;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .skills-grid, .project-grid {
+        grid-template-columns: 1fr; /* Una columna para dispositivos muy pequeños */
+    }
+
+    .job-item, .education-item {
+        margin-bottom: 20px;
+    }
+
+    .job-item h3, .education-item h3 {
+        font-size: 1.3em;
+    }
+
+    .job-item h4, .education-item h4 {
+        font-size: 1em;
+    }
+
+    .social-links a {
+        font-size: 2em;
+        margin: 0 10px;
+    }
+}
+
+/* Animaciones de scroll (ejemplo básico - necesitaría JS para una implementación completa) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
